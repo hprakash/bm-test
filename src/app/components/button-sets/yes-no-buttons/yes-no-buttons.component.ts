@@ -5,9 +5,9 @@ import { IProfile } from 'src/app/core/types';
 @Component({
   selector: 'app-yes-no-buttons',
   templateUrl: './yes-no-buttons.component.html',
-  styleUrls: ['./yes-no-buttons.component.css']
+  // styleUrls: ['./yes-no-buttons.component.css']
 })
-export class YesNoButtonsComponent extends BaseComponent implements OnInit {
+export class YesNoButtonsComponent extends BaseComponent {
 
   @Input()
   profile!: IProfile;
@@ -17,10 +17,6 @@ export class YesNoButtonsComponent extends BaseComponent implements OnInit {
 
   constructor() {
     super();
-  }
-
-  ngOnInit(): void {
-    let i = 0;
   }
 
   yesClick() {

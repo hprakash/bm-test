@@ -4,10 +4,6 @@ import { BaseComponent } from 'src/app/core/base/base.component';
 import { IProfile } from 'src/app/core/types';
 import { ProfileService } from 'src/app/services';
 
-// import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-
-
-
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 
@@ -24,8 +20,6 @@ export class ProfileDetailsComponent extends BaseComponent implements OnInit {
 
   profile!: IProfile;
 
-  // faArrowLeft = faArrowLeft;
-
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
@@ -35,7 +29,12 @@ export class ProfileDetailsComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const profileId = Number(this.route.snapshot.paramMap.get('id'));
+    const profileId = Number(this.route.snapshot.paramMap.get('id')) || 0;
+
+    if (!profileId) {
+      // no need to continue;
+      return;
+    }
 
     this.profileService.getProfileById(profileId)
       .subscribe({

@@ -5,7 +5,7 @@ import { IProfile, TypeProfile } from 'src/app/core/types';
 @Component({
   selector: 'app-extended-actions',
   templateUrl: './extended-actions.component.html',
-  styleUrls: ['./extended-actions.component.css']
+  // styleUrls: ['./extended-actions.component.css']
 })
 export class ExtendedActionsComponent implements OnInit {
 

@@ -1,33 +1,23 @@
-<!-- <p>
-  The current screen size is <strong>{{currentScreenSize}}</strong>
-</p> -->
 <div class="px-3 pt-3" style="background-color: #33a3db; height: 100vh;">
   <div class="d-flex flex-row align-items-center">
     <div class="p-2 text-white mr-auto">My Matches</div>
     <div class="p-2 text-truncate">
       <a [routerLink]="['/', paths.STACK_DAILY_RECOMMENDATIONS]" class="btn btn-success btn-sm">Daily
-        Recommends</a>
+        Rec</a>
     </div>
     <div class="p-2">
       <a [routerLink]="['/', paths.STACK_FEATURED]" class="btn btn-danger btn-sm">Featured</a>
     </div>
     <div class="p-2"><img src="./assets/icons/more-icon-white.svg" height="20px" width="20px" /></div>
   </div>
-  <!-- <div class="d-flex">
-    <div class="mr-auto p-2 text-white">
-      My Matches
-    </div>
-    <div class="p-2">
-      <img src="./assets/icons/more-icon-white.svg" height="20px" width="20px" />
-    </div>
-  </div> -->
   <div class="mr-auto p-2 text-white h5">
     {{ profiles.length }} Profiles pending with me ({{ profiles.length - 3 }} new)
   </div>
   <ng-container *ngIf="!isSmallScreen(); else smallScreenTmpl">
     <!-- this screen is done for small mobile view only -->
     <div class="container-fluid" style="background-color: #33a3db;">
-      <swiper [slidesPerView]="5" [spaceBetween]="10" [navigation]="true" [pagination]="true" class="mySwiper">
+      <swiper #swiperRef [slidesPerView]="5" [spaceBetween]="10" [navigation]="true" [pagination]="true"
+        class="mySwiper">
         <ng-template swiperSlide *ngFor="let prof of profiles">
           <app-profile-card-view [profile]="prof" (bodyClick)="profileClicked(prof)">
             <app-yes-no-buttons [profile]="prof" (buttonClicked)="buttonClicked($event, prof)"></app-yes-no-buttons>
@@ -38,38 +28,13 @@
   </ng-container>
 </div>
 
-<!-- <div class="container">
-  <swiper [slidesPerView]="1" [spaceBetween]="10" [navigation]="true" [pagination]="{
-      clickable: true
-    }" [breakpoints]="{
-      '640': {
-        slidesPerView: 2,
-        spaceBetween: 20
-      },
-      '768': {
-        slidesPerView: 4,
-        spaceBetween: 40
-      },
-      '1024': {
-        slidesPerView: 5,
-        spaceBetween: 50
-      }
-    }" class="mySwiper">
-    <ng-template swiperSlide *ngFor="let prof of profiles">
-      <app-profile-card-view [profile]="prof" (clickEmitter)="onProfileClicked($event)">
-        <app-yes-no-buttons [profile]="prof"></app-yes-no-buttons>
-      </app-profile-card-view>
-    </ng-template>
-  </swiper>
-</div> -->
-
 <ng-template #smallScreenTmpl>
   <div class="d-flex flex-row mb-3 hidden-scrollbar"
     style="width: 100%; overflow-x: scroll; background-color: #33a3db;">
     <ng-container *ngFor="let prof of profiles">
-      <div class="p-2">
-        <app-profile-card-view [profile]="prof" (bodyClick)="profileClicked(prof)"
-          (dpClicked)="dpClicked($event, prof)">
+      <div class="p-2" [id]="'profile-box-' + prof.id ">
+        <app-profile-card-view [profile]="prof" (bodyClick)="profileClicked(prof)">
+          <!-- (dpClicked)="dpClicked($event, prof)" -->
           <app-yes-no-buttons [profile]="prof" (buttonClicked)="buttonClicked($event, prof)"></app-yes-no-buttons>
         </app-profile-card-view>
       </div>
@@ -77,7 +42,7 @@
   </div>
 </ng-template>
 
-<ng-template #header>
+<!-- <ng-template #header>
   <div class="d-flex">
     <div class="mr-auto p-2 text-white">
       My Matches
@@ -89,4 +54,4 @@
   <div class="mr-auto p-2 text-white h5">
     {{ profiles.length }} Profiles pending with me ({{ profiles.length - 3 }} new)
   </div>
-</ng-template>
+</ng-template> -->

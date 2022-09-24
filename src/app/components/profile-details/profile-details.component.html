@@ -1,13 +1,9 @@
-<div style="background-color: blanchedalmond; height: 100vh;">
+<div style="background-color: blanchedalmond; height: 100vh;" *ngIf="profile">
   <div class="position-absolute return-menu">
     <a [routerLink]="['/', paths.HOME]" class="text-white">
-      <!-- <i class="fa-solid fa-arrow-left"></i> -->
       <img src="./assets/icons/arrow-left.svg"> {{ profile.code }}
     </a>
   </div>
-  <!-- {
-    type: 'fraction'
-  } -->
 
   <div class="gradient-box-1" style="z-index: 0;">
     <!-- nothing here -->
@@ -27,7 +23,7 @@
 
   <div>
     <div class="dp-top-curve" style="background-color: white;">&nbsp;</div>
-    <div class="text-dark" style="background-color: white;">
+    <div class="text-dark px-2" style="background-color: white;">
       <p class="text-capitalize font-weight-bold">{{ profile.name }}</p>
       <div style="color: black;">
         {{ profile.age }} Years, {{ profile.details }}
@@ -38,6 +34,9 @@
       <div style="color: black;">
         {{ profile.location }}
       </div>
+      <p>
+        &nbsp;
+      </p>
       <div>
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -47,6 +46,4 @@
       </div>
     </div>
   </div>
-
-  <!-- {{ profile | json }} -->
 </div>

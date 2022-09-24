@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { TypeProfile } from 'src/app/core/types';
 
@@ -7,7 +7,7 @@ import { TypeProfile } from 'src/app/core/types';
   templateUrl: './profile-card-view.component.html',
   styleUrls: ['./profile-card-view.component.css']
 })
-export class ProfileCardViewComponent extends BaseComponent implements OnInit {
+export class ProfileCardViewComponent extends BaseComponent {
 
   @Input()
   profile: TypeProfile = false;
@@ -25,10 +25,6 @@ export class ProfileCardViewComponent extends BaseComponent implements OnInit {
 
   constructor() {
     super();
-  }
-
-  ngOnInit(): void {
-    let i = 0;
   }
 
   onClick() {

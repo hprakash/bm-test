@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { BaseComponent } from 'src/app/core/base/base.component';
@@ -8,6 +8,7 @@ import { ProfileService } from 'src/app/services';
 
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination } from "swiper";
+import { SwiperComponent } from 'swiper/angular';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
@@ -19,6 +20,9 @@ SwiperCore.use([Navigation, Pagination]);
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
+
+  @ViewChild("swiperRef", { static: false })
+  sliderRef?: SwiperComponent;
 
   profiles: IProfile[] = [];
 
@@ -71,15 +75,27 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     }
   }
 
-  dpClicked(count: number, profile: IProfile) {
-    if (profile) {
-      this.Router.navigate(['/', this.paths.PROFILE_DETAILS, profile.id]);
-    }
-  }
+  /*  dpClicked(count: number, profile: IProfile) {
+     if (profile) {
+       this.Router.navigate(['/', this.paths.PROFILE_DETAILS, profile.id]);
+     }
+   } */
 
   buttonClicked(val: boolean, profile: IProfile) {
     if (val) {
       this.redirectToDetails(profile);
+    } else {
+
+      if (this.isSmallScreen()) {
+
+        const index = this.profiles.indexOf(profile);
+        if (this.profiles[index + 1]) {
+          document.getElementById('profile-box-' + this.profiles[index + 1].id)?.focus();
+        }
+
+      } else {
+        this.sliderRef?.swiperRef.slideNext();
+      }
     }
   }
 

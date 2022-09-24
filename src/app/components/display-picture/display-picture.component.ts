@@ -14,10 +14,5 @@ export class DisplayPictureComponent {
   @Input()
   curvedTopClass = '';
 
-
-
-
   constructor() { }
-
-
 }
