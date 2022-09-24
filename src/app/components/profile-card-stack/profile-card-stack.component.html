@@ -1,0 +1,110 @@
+<!-- <p>
+  The current screen size is <strong>{{currentScreenSize}}</strong>
+</p> -->
+
+<div class="gradient-box-1">
+  <!-- nothing here -->
+</div>
+
+<div class="d-flex flex-row align-items-center h3">
+  <div class="ml-3">
+    <img src="./assets/icons/arrow-left.svg">
+  </div>
+  <div class="mr-auto pl-1">
+    <a [routerLink]="['/', paths.HOME]" style="color: white">
+      <i class="fa-solid fa-arrow-left"></i> {{ func.getStackTypeLabel(profileStackType) }}
+    </a>
+  </div>
+</div>
+
+<ng-container *ngIf="!isSmallScreen(); else smallScreenTmpl">
+  <div class="container-fluid">
+    <div class="d-flex flex-row mb-3 hidden-scrollbar1" style="width: 100%; overflow-x: scroll;">
+      <ng-container *ngFor="let prof of profiles">
+        <div class="p-2">
+          <div class="shadow">
+            <app-profile-card-view [profile]="prof" [showPremiumInfo]="true">
+              <app-extended-actions [profile]="prof"></app-extended-actions>
+            </app-profile-card-view>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #smallScreenTmpl>
+
+  <!-- <div class="swipe1" (swipe)="onSwipe($event)"> -->
+  <!-- <h1>Swipe Gesture</h1>
+    <p>Works with both mouse and touch.</p> -->
+  <!-- <h5 [innerHTML]="direction"></h5> -->
+
+  <div class="d-flex flex-column mb-3 align-items-center" (swipe)="onSwipe($event)">
+    <!-- <div class=""><img src="./assets/img/head.png"></div> -->
+    <div *ngIf="profiles.length > 2" class="box-1 w-50">&nbsp;</div>
+    <div *ngIf="profiles.length > 1" class="box-2" style="width: 65%;">&nbsp;</div>
+    <div class="px-3">
+      <div class="shadow">
+        <app-profile-card-view [profile]="selProfile" [showPremiumInfo]="true">
+          <!-- [ngClass]="{ 'd-none': idx !== 0 }" -->
+          <app-extended-actions [profile]="selProfile" (buttonClicked)="doAction($event)">
+          </app-extended-actions>
+        </app-profile-card-view>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <ng-container *ngFor="let prof of profiles; trackBy: fnTrackBy; let idx = index"> -->
+
+  <!-- <div class="bg-white" style="color: black; width: 400px;" [ngClass]="{ 'd-none': idx !== 0 }"> -->
+  <!-- <div [ngClass]="{ 'd-none': idx !== 0 }"> -->
+
+
+
+  <!-- <div>
+      <span class="verified-profile" *ngIf="prof.isVerified">
+        <img src="./assets/icons/verified.svg"> Verified
+      </span>
+      <span class="premium-nri" *ngIf="prof.isNRI">
+        <img src="./assets/icons/rocket.svg"> Premium NRI
+      </span>
+    </div>
+    <p class="text-capitalize" style="color: black;">{{ prof.name }}</p>
+    <div style="color: black;">
+      {{ prof.age }} Years, {{ prof.details }}
+    </div>
+    <div style="color: black;">
+      {{ prof.religion }}
+    </div>
+    <div style="color: black;">
+      {{ prof.location }}
+    </div>
+    <hr>
+    <div class="d-flex">
+      <div class="mr-auto p-2">
+        <app-profile-shortlist-button [profile]="prof" (disableEmitter)="onDisable($event)">
+        </app-profile-shortlist-button>
+        <span class="reg-text px-2">Short list</span>
+      </div>
+      <div class="p-2 reg-text">
+        Like her?
+        <img src="./assets/icons/x.svg" class="cancel-button" />
+        <img src="./assets/icons/check.svg" class="ok-button" />
+      </div>
+    </div> -->
+  <!-- {{ prof | json }} -->
+  <!-- [profile]="prof" (onClickEmitter)="onProfileClicked($event)" -->
+  <!-- </div> -->
+  <!-- </ng-container> -->
+
+  <!-- </div> -->
+
+</ng-template>
+
+<ng-template #noProfileTmpl>
+  <div>
+    No more matches
+  </div>
+</ng-template>

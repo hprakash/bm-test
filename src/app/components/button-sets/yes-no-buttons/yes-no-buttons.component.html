@@ -1,0 +1,9 @@
+<!-- <mat-card-actions *ngIf="profile">
+  <button mat-button (click)="yesClick()">Yes</button>
+  <button mat-button (click)="noClick()">SHARE</button>
+</mat-card-actions> -->
+
+<div class="d-flex flex-row pl-2" *ngIf="profile">
+  <button class="p-2 ok-button" (click)="yesClick()">Yes</button>
+  <button class="p-2 cancel-button border" (click)="noClick()">No</button>
+</div>

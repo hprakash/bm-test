@@ -1,0 +1,84 @@
+<ng-container *ngIf="profile">
+  <!-- <a [routerLink]="['/', path.PROFILE_DETAILS, profile.id]"> -->
+  <!-- {{ profile | json }} -->
+  <!-- <div class="p-1"> -->
+
+  <app-display-picture [profile]="profile" [curvedTopClass]="'dp-top-curve'" (click)="photoClick()">
+  </app-display-picture>
+
+  <div class="bottom-curve bg-white" style="color: black;" style="width: inherit;">
+    <div class="d-flex flex-column">
+      <div class="flex-fill px-3 pt-3">
+        <!-- <div *ngIf="showPremiumInfo" class="text-left"> -->
+        <div [ngClass]="{ 'invisible': !showPremiumInfo }" class="text-left pb-2">
+          <span class="verified-profile pr-2" *ngIf="profile.isVerified">
+            <img src="./assets/icons/verified.svg"> Verified
+          </span>
+          <span class="premium-nri" *ngIf="profile.isNRI">
+            <img src="./assets/icons/rocket.svg"> Premium NRI
+          </span>
+          <span>&nbsp;</span>
+        </div>
+        <p class="h5 text-capitalize text-truncate text-left" style="color: black;">{{ profile.name }}</p>
+        <div class="text-left text-truncate" style="color: black;">
+          <small>{{ profile.age }} Years, {{ profile.details }}</small>
+        </div>
+        <div class="text-left text-truncate" style="color: black;">
+          <small>{{ profile.religion }}</small>
+        </div>
+        <div class="text-left text-truncate" style="color: black;">
+          <small>{{ profile.location }}</small>
+        </div>
+      </div>
+      <div class="px-2">
+        <hr>
+      </div>
+      <div>
+        <ng-content></ng-content>
+      </div>
+      <div>
+        &nbsp;
+      </div>
+    </div>
+
+
+
+    <!-- <div class="d-flex">
+      <div class="mr-auto p-2">
+        <app-profile-shortlist-button [profile]="profile" (disableEmitter)="onDisable($event)">
+        </app-profile-shortlist-button>
+        <span class="reg-text px-2">Short list</span>
+      </div>
+      <div class="p-2 reg-text">
+        Like her?
+        <img src="./assets/icons/x.svg" class="cancel-button" />
+        <img src="./assets/icons/check.svg" class="ok-button" />
+      </div>
+    </div> -->
+    <!-- {{ profile | json }} -->
+    <!-- [profile]="profile" (onClickEmitter)="onProfileClicked($event)" -->
+  </div>
+  <!-- <mat-card class="example-card d-none">
+    <mat-card-header> -->
+  <!-- <div mat-card-avatar class="example-header-image"></div> -->
+  <!-- <mat-card-title>{{ profile.name }}</mat-card-title> -->
+  <!-- <mat-card-subtitle>{{ profile.code }}</mat-card-subtitle> -->
+  <!-- </mat-card-header>
+    <img mat-card-image [src]="profile.dpUrl" alt="Photo of a Shiba Inu" (click)="onClick()">
+    <mat-card-title>{{ profile.name }}</mat-card-title>
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content> -->
+  <!-- <mat-card-actions>
+        <button mat-button (click)="onClick()">Yes</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions> -->
+  <!-- <ng-content></ng-content>
+  </mat-card> -->
+  <!-- </div> -->
+  <!-- </a> -->
+</ng-container>

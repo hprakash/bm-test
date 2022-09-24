@@ -1,0 +1,17 @@
+<!-- api {{ getIsApiProcessing() }} -->
+
+<ng-container *ngIf="profile">
+  <ng-container *ngIf="getIsApiProcessing(); else showStarredButtonTmpl">
+    <mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner>
+  </ng-container>
+</ng-container>
+
+<ng-template #showStarredButtonTmpl>
+  <ng-container *ngIf="profile.isShortlisted; else showStarButtonTmpl">
+    <img src="./assets/icons/star-fill.svg" (click)="onButtonClick(false)" />
+  </ng-container>
+</ng-template>
+
+<ng-template #showStarButtonTmpl>
+  <img src="./assets/icons/star.svg" (click)="onButtonClick(true)" />
+</ng-template>

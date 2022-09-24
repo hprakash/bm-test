@@ -1,4 +1,173 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.just-hidden {
+  visibility: hidden;
+}
+
+button.plain-button {
+  /* border: none; */
+  background: none;
+}
+
+.ok-button,
+.cancel-button {
+  background-color: #FFF;
+  border-radius: 34px;
+  /* margin-right: 8px; */
+  width: 75px;
+  text-align: center;
+  margin: 2px;
+  align-content: center;
+  vertical-align: middle;
+  height: 36px;
+}
+
+.ok-button {
+  border: 0;
+  background-color: orange;
+  color: white;
+}
+
+.cancel-button {
+  border: 1px solid #cccccc;
+  background-color: #fff;
+}
+
+.box-1 {
+  height: 18px;
+  margin: 0 auto;
+  opacity: 0.8;
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+  top: 10px;
+}
+
+.box-2 {
+  height: 10px;
+  margin: 0 auto;
+  opacity: 0.8;
+  background: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.gradient-box-1 {
+  background-image: linear-gradient(to bottom right, #5ccc67, #2ed0c0);
+  min-height: 300px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.return-menu {
+  top: 25px;
+  left: 10px;
+  z-index: 10;
+}
+
+.swiper {
+  width: 400px;
+  height: 600px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* .swiper-slide {
+  background-color: white;
+} */
+
+/* .swiper-slide:nth-child(1n) {
+  background-color: rgb(206, 17, 17);
+}
+
+.swiper-slide:nth-child(2n) {
+  background-color: rgb(0, 140, 255);
+}
+
+.swiper-slide:nth-child(3n) {
+  background-color: rgb(10, 184, 111);
+}
+
+.swiper-slide:nth-child(4n) {
+  background-color: rgb(211, 122, 7);
+}
+
+.swiper-slide:nth-child(5n) {
+  background-color: rgb(118, 163, 12);
+}
+
+.swiper-slide:nth-child(6n) {
+  background-color: rgb(180, 10, 47);
+}
+
+.swiper-slide:nth-child(7n) {
+  background-color: rgb(35, 99, 19);
+}
+
+.swiper-slide:nth-child(8n) {
+  background-color: rgb(0, 68, 255);
+}
+
+.swiper-slide:nth-child(9n) {
+  background-color: rgb(218, 12, 218);
+}
+
+.swiper-slide:nth-child(10n) {
+  background-color: rgb(54, 94, 77);
+} */
+
+.verified-profile,
+.premium-nri,
+.reg-text {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.verified-profile {
+  color: #657bde;
+}
+
+.premium-nri {
+  color: violet;
+}
+
+
+.dp-top-curve {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+}
+
+.bottom-curve {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+.hidden-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}

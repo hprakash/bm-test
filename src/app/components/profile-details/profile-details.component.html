@@ -1,0 +1,52 @@
+<div style="background-color: blanchedalmond; height: 100vh;">
+  <div class="position-absolute return-menu">
+    <a [routerLink]="['/', paths.HOME]" class="text-white">
+      <!-- <i class="fa-solid fa-arrow-left"></i> -->
+      <img src="./assets/icons/arrow-left.svg"> {{ profile.code }}
+    </a>
+  </div>
+  <!-- {
+    type: 'fraction'
+  } -->
+
+  <div class="gradient-box-1" style="z-index: 0;">
+    <!-- nothing here -->
+  </div>
+
+  <swiper [pagination]="true" class="mySwiper">
+    <ng-template swiperSlide>
+      <img [src]="profile.dpUrl">
+    </ng-template>
+
+    <ng-container *ngIf="profile.gallery?.length">
+      <ng-template swiperSlide *ngFor="let imgUrl of profile.gallery">
+        <img [src]="imgUrl">
+      </ng-template>
+    </ng-container>
+  </swiper>
+
+  <div>
+    <div class="dp-top-curve" style="background-color: white;">&nbsp;</div>
+    <div class="text-dark" style="background-color: white;">
+      <p class="text-capitalize font-weight-bold">{{ profile.name }}</p>
+      <div style="color: black;">
+        {{ profile.age }} Years, {{ profile.details }}
+      </div>
+      <div style="color: black;">
+        {{ profile.religion }}
+      </div>
+      <div style="color: black;">
+        {{ profile.location }}
+      </div>
+      <div>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum."
+      </div>
+    </div>
+  </div>
+
+  <!-- {{ profile | json }} -->
+</div>
