@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: PATH.STACK_FEATURED
+    redirectTo: PATH.HOME
   },
   {
     path: PATH.HOME,
@@ -35,7 +35,11 @@ const routes: Routes = [
   },
   {
     path: PATH.SWIPE_TEST,
-    component: C.SwipePageComponent
+    component: C.SwipePageComponent,
+  },
+  {
+    path: '**',
+    component: C.PageNotFoundComponent,
   },
 ];
 

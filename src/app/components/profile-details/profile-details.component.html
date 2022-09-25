@@ -1,7 +1,15 @@
 <div style="background-color: blanchedalmond; height: 100vh;" *ngIf="profile">
   <div class="position-absolute return-menu">
     <a [routerLink]="['/', paths.HOME]" class="text-white">
-      <img src="./assets/icons/arrow-left.svg"> {{ profile.code }}
+      <!-- <img src="./assets/icons/arrow-left.svg"> {{ profile.code }} -->
+      <div class="d-flex flex-row align-items-center">
+        <div>
+          <mat-icon class="material-icons text-white">arrow_back</mat-icon>
+        </div>
+        <div>
+          &nbsp;{{ profile.code }}
+        </div>
+      </div>
     </a>
   </div>
 

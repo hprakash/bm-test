@@ -1,17 +1,30 @@
 <!-- api {{ getIsApiProcessing() }} -->
 
 <ng-container *ngIf="profile">
-  <ng-container *ngIf="getIsApiProcessing(); else showStarredButtonTmpl">
-    <mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner>
+  <ng-container *ngIf="isApiProcessing; else showStarredButtonTmpl">
+    <div class="d-flex flex-row">
+      <mat-progress-spinner mode="indeterminate" diameter="20"></mat-progress-spinner> &nbsp; Processing...
+    </div>
   </ng-container>
 </ng-container>
 
 <ng-template #showStarredButtonTmpl>
   <ng-container *ngIf="profile.isShortlisted; else showStarButtonTmpl">
-    <img src="./assets/icons/star-fill.svg" (click)="onButtonClick(false)" />
+    <!-- <img src="./assets/icons/star-fill.svg" (click)="onButtonClick(false)" /> -->
+    <!-- <div class="align-self-center"> -->
+    <img src="./assets/icons/star-fill.svg" (click)="onButtonClick(false)" style="cursor: pointer;" />
+    <!-- </div>
+    <div class="mr-auto align-self-center"> -->
+    <span class="reg-text px-2" (click)="onButtonClick(false)" style="cursor: pointer;">Shortlisted</span>
+    <!-- </div> -->
   </ng-container>
 </ng-template>
 
 <ng-template #showStarButtonTmpl>
-  <img src="./assets/icons/star.svg" (click)="onButtonClick(true)" />
+  <!-- <div class="align-self-center"> -->
+  <img src="./assets/icons/star.svg" (click)="onButtonClick(true)" style="cursor: pointer;" />
+  <!-- </div>
+  <div class="mr-auto align-self-center"> -->
+  <span class="reg-text px-2" (click)="onButtonClick(true)" style="cursor: pointer;">Shortlist</span>
+  <!-- </div> -->
 </ng-template>

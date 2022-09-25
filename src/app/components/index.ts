@@ -2,6 +2,7 @@ export { ExtendedActionsComponent } from './button-sets/extended-actions/extende
 export { YesNoButtonsComponent } from './button-sets/yes-no-buttons/yes-no-buttons.component';
 export { DisplayPictureComponent } from './display-picture/display-picture.component';
 export { HomeComponent } from './home/home.component';
+export { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 export { ProfileCardStackComponent } from './profile-card-stack/profile-card-stack.component';
 export { ProfileCardViewComponent } from './profile-card-view/profile-card-view.component';
 export { ProfileDetailsComponent } from './profile-details/profile-details.component';

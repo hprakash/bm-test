@@ -1,20 +1,20 @@
 <div class="px-3 pt-3" style="background-color: #33a3db; height: 100vh;">
   <div class="d-flex flex-row align-items-center">
     <div class="p-2 text-white mr-auto">My Matches</div>
-    <div class="p-2 text-truncate">
-      <a [routerLink]="['/', paths.STACK_DAILY_RECOMMENDATIONS]" class="btn btn-success btn-sm">Daily
-        Rec</a>
-    </div>
-    <div class="p-2">
-      <a [routerLink]="['/', paths.STACK_FEATURED]" class="btn btn-danger btn-sm">Featured</a>
-    </div>
-    <div class="p-2"><img src="./assets/icons/more-icon-white.svg" height="20px" width="20px" /></div>
+    <ng-container *ngIf="!isSmallScreen(); else overflowMenuTmpl">
+      <div class="p-2 text-truncate">
+        <a [routerLink]="['/', paths.STACK_DAILY_RECOMMENDATIONS]" class="btn btn-success btn-sm">Daily
+          Recommendations</a>
+      </div>
+      <div class="p-2">
+        <a [routerLink]="['/', paths.STACK_FEATURED]" class="btn btn-danger btn-sm">Featured</a>
+      </div>
+    </ng-container>
   </div>
   <div class="mr-auto p-2 text-white h5">
     {{ profiles.length }} Profiles pending with me ({{ profiles.length - 3 }} new)
   </div>
   <ng-container *ngIf="!isSmallScreen(); else smallScreenTmpl">
-    <!-- this screen is done for small mobile view only -->
     <div class="container-fluid" style="background-color: #33a3db;">
       <swiper #swiperRef [slidesPerView]="5" [spaceBetween]="10" [navigation]="true" [pagination]="true"
         class="mySwiper">
@@ -39,6 +39,21 @@
         </app-profile-card-view>
       </div>
     </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #overflowMenuTmpl>
+  <div class="p-2">
+    <!-- <img src="./assets/icons/more-icon-white.svg" height="20px" width="20px" /> -->
+    <button mat-button [matMenuTriggerFor]="beforeMenu">
+      <button mat-icon-button class="material-icons color-white" aria-label="vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item [routerLink]="['/', paths.STACK_DAILY_RECOMMENDATIONS]">Daily recommendations</button>
+      <button mat-menu-item [routerLink]="['/', paths.STACK_FEATURED]">Featured Profiles</button>
+    </mat-menu>
   </div>
 </ng-template>
 

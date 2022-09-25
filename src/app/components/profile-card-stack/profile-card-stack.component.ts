@@ -8,6 +8,13 @@ import * as E from 'src/app/core/enums';
 import { IProfile, TypeProfile } from 'src/app/core/types';
 import { ProfileService } from 'src/app/services';
 
+
+/**
+ * This compenent is resuable to show various types of cards bsaed on the enum.
+ *
+ * The card type is selected based on the configuration of snapshot configuration on route.
+ *
+ */
 @Component({
   // selector: 'app-profile-card-list',
   templateUrl: './profile-card-stack.component.html',
@@ -16,7 +23,8 @@ import { ProfileService } from 'src/app/services';
 })
 export class ProfileCardStackComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  profileStackType: E.EProfileStack = E.EProfileStack.Featured;
+  /* TODO handle case for unknown type */
+  profileStackType: E.EProfileStack = E.EProfileStack.Unknown;
 
   public get profiles(): IProfile[] {
     return this._profiles;
@@ -84,7 +92,7 @@ export class ProfileCardStackComponent extends BaseComponent implements OnInit, 
   }
 
   onDisable(val: boolean) {
-    console.log("new value received at on disable: ", val);
+    // console.log("new value received at on disable: ", val);
     this.isEnabled = !val;
   }
 

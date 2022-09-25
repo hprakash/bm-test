@@ -1,4 +1,11 @@
 /**
+ * Typescript allows us to have derived type for negative cases
+ *
+ * Eg. In adapter for profiles that has data issues, false can be used..
+ */
+export type TypeProfile = IProfile | false;
+
+/**
  * The registered user profile type
  */
 export interface IProfile {
@@ -63,5 +70,3 @@ export interface IProfile {
    */
   gallery?: string[];
 }
-
-export type TypeProfile = IProfile | false;

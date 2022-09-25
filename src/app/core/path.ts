@@ -20,6 +20,10 @@ export const STACK_DAILY_RECOMMENDATIONS = 'daily-recommendations';
  */
 export const STACK_FEATURED = 'featured';
 
+/**
+ * for 404 error
+ */
+export const PATH_404 = 'not-found';
 
 /**
  * route name for swipe test

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BaseComponent } from 'src/app/core/base/base.component';
 import { IProfile } from 'src/app/core/types';
@@ -9,39 +9,33 @@ import { ProfileService } from 'src/app/services';
   templateUrl: './profile-shortlist-button.component.html',
   styleUrls: ['./profile-shortlist-button.component.css']
 })
-export class ProfileShortlistButtonComponent extends BaseComponent implements OnInit {
-
+export class ProfileShortlistButtonComponent extends BaseComponent {
 
   /**
-   *
+   * Profile is the input
    */
   @Input()
   profile!: IProfile;
 
   /**
-   *
+   * Emits true/false so that the parent component can freeze screen for api processing
    */
   @Output()
   disableEmitter: EventEmitter<boolean> = new EventEmitter();
 
   // inProgress = false;
 
-  getIsApiProcessing(): boolean {
+  /* getIsApiProcessing(): boolean {
     return this.isApiProcessing;
-  }
+  } */
 
-  isApiProcessing = false;
+  // isApiProcessing = false;
 
   constructor(
     private profileService: ProfileService,
     private _snackBar: MatSnackBar,
   ) {
     super();
-  }
-
-  ngOnInit(): void {
-    let i = 0;
-    // this.isApiProcessing = true;
   }
 
   /**
@@ -64,7 +58,8 @@ export class ProfileShortlistButtonComponent extends BaseComponent implements On
     /**
      * Just a way to handle negative case.
      */
-    if (this.getIsApiProcessing()) {
+    // if (this.getIsApiProcessing()) {
+    if (this.isApiProcessing) {
       console.log('oops! Another request is already pending');
       return;
     }
@@ -103,7 +98,7 @@ export class ProfileShortlistButtonComponent extends BaseComponent implements On
 
   setProcessingState(val: boolean): void {
     this.isApiProcessing = val;
-    // this.disableEmitter.emit(val);
+    this.disableEmitter.emit(val);
   }
 
   dismissSnackBar() {

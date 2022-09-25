@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IProfile } from '../core/types';
@@ -141,15 +140,15 @@ export class ProfileService {
   } */];
 
   constructor(
-    private http: HttpClient
+    // private http: HttpClient
   ) {
     // this.loadProfiles();
   }
 
-  private async loadProfiles() {
+  /* private async loadProfiles() {
     //
     this._profiles = await this.http.get<IProfile[]>('./assets/profiles.json').toPromise();
-  }
+  } */
 
   /**
    * Returns an observable for fetching profiles
@@ -163,10 +162,10 @@ export class ProfileService {
 
   /**
    * Returns observable of a profile matched to the id
-   * 
+   *
    * @param id primary key of the profile
-   * 
-   * @returns 
+   *
+   * @returns profile by the given id
    */
   getProfileById(id: number): Observable<IProfile | undefined> {
 
@@ -175,6 +174,13 @@ export class ProfileService {
     return of(profile);
   }
 
+  /**
+   * Adds/removes the given profile to the shortlist of current user
+   *
+   * @param id target user id
+   * @param shortlist bool
+   * @returns success state or error(-1)
+   */
   postShortlistProfile(id: number, shortlist: boolean): Observable<boolean | number> {
 
     const profile = this._profiles.find(f => f.id === id);

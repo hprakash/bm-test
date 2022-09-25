@@ -43,6 +43,12 @@ button.plain-button {
   background-color: #fff;
 }
 
+.ok-button:disabled,
+.cancel-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .box-1 {
   height: 18px;
   margin: 0 auto;
@@ -152,7 +158,6 @@ button.plain-button {
   color: violet;
 }
 
-
 .dp-top-curve {
   border-top-left-radius: 1rem !important;
   border-top-right-radius: 1rem !important;
@@ -170,4 +175,28 @@ button.plain-button {
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hidden-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.no-text-select {
+  /* iOS Safari */
+  -webkit-touch-callout: none;
+  /* Safari */
+  -webkit-user-select: none;
+  /* Konqueror HTML */
+  -khtml-user-select: none;
+  /* Old versions of Firefox */
+  -moz-user-select: none;
+  /* Internet Explorer/Edge */
+  -ms-user-select: none;
+  /* Non-prefixed version, currently
+   supported by Chrome, Edge, Opera and Firefox */
+  user-select: none;
+}
+
+.material-icons.color-white {
+  color: #FFFFFF;
+}
+
+a.link-as-button:hover {
+  text-decoration: none;
 }

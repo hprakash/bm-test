@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import * as C from './components';
 
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SwiperModule } from 'swiper/angular';
@@ -24,6 +26,7 @@ export class MyHammerConfig extends HammerGestureConfig {
 }
 
 // import 'hammer-timejs';
+import { MatButtonModule } from '@angular/material/button';
 import 'hammerjs';
 
 
@@ -33,6 +36,7 @@ import 'hammerjs';
     C.ExtendedActionsComponent,
     C.DisplayPictureComponent,
     C.HomeComponent,
+    C.PageNotFoundComponent,
     C.ProfileCardStackComponent,
     C.ProfileCardViewComponent,
     C.ProfileDetailsComponent,
@@ -45,7 +49,10 @@ import 'hammerjs';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatMenuModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
     SwiperModule,

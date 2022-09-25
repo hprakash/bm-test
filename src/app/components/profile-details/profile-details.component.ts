@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseComponent } from 'src/app/core/base/base.component';
-import { IProfile } from 'src/app/core/types';
+import { TypeProfile } from 'src/app/core/types';
 import { ProfileService } from 'src/app/services';
 
 // import Swiper core and required modules
@@ -18,7 +18,7 @@ SwiperCore.use([Pagination]);
 })
 export class ProfileDetailsComponent extends BaseComponent implements OnInit {
 
-  profile!: IProfile;
+  profile: TypeProfile = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,7 +32,7 @@ export class ProfileDetailsComponent extends BaseComponent implements OnInit {
     const profileId = Number(this.route.snapshot.paramMap.get('id')) || 0;
 
     if (!profileId) {
-      // no need to continue;
+      // no need to continue, show error status
       return;
     }
 

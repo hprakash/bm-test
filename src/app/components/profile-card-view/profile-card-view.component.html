@@ -1,14 +1,10 @@
 <ng-container *ngIf="profile">
-  <!-- <a [routerLink]="['/', path.PROFILE_DETAILS, profile.id]"> -->
-  <!-- {{ profile | json }} -->
-  <!-- <div class="p-1"> -->
-
   <app-display-picture [profile]="profile" [curvedTopClass]="'dp-top-curve'" (click)="photoClick()">
   </app-display-picture>
 
   <div class="bottom-curve bg-white" style="color: black;" style="width: inherit;">
     <div class="d-flex flex-column">
-      <div class="flex-fill px-3 pt-3">
+      <div class="flex-fill px-3 pt-3 no-text-select">
         <!-- <div *ngIf="showPremiumInfo" class="text-left"> -->
         <div [ngClass]="{ 'invisible': !showPremiumInfo }" class="text-left pb-2">
           <span class="verified-profile pr-2" *ngIf="profile.isVerified">
@@ -34,27 +30,14 @@
         <hr>
       </div>
       <div>
+        <!-- implement the custom buttons widget here -->
         <ng-content></ng-content>
+        <!-- end: implement the custom buttons widget here -->
       </div>
       <div>
         &nbsp;
       </div>
     </div>
-
-    <!-- <div class="d-flex">
-      <div class="mr-auto p-2">
-        <app-profile-shortlist-button [profile]="profile" (disableEmitter)="onDisable($event)">
-        </app-profile-shortlist-button>
-        <span class="reg-text px-2">Short list</span>
-      </div>
-      <div class="p-2 reg-text">
-        Like her?
-        <img src="./assets/icons/x.svg" class="cancel-button" />
-        <img src="./assets/icons/check.svg" class="ok-button" />
-      </div>
-    </div> -->
-    <!-- {{ profile | json }} -->
-    <!-- [profile]="profile" (onClickEmitter)="onProfileClicked($event)" -->
   </div>
   <!-- <mat-card class="example-card d-none">
     <mat-card-header> -->

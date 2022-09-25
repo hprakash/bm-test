@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import * as FUNCTIONS from '../functions';
 // import * as ENUM from '../enums';
-import * as PATH from '../path';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
+import * as PATH from '../path';
 
-
+/**
+ * Base component that gives basic shape to the extended component.
+ * This component is marked as abstract and should not be used directly.
+ */
 @Component({
   template: ''
 })
@@ -26,14 +29,7 @@ export abstract class BaseComponent {
   /**
    * A common var to store api querying statue
    */
-  /* public get isApiProcessing() {
-    return this._isApiProcessing;
-  }
-  public set isApiProcessing(value) {
-    this._isApiProcessing = value;
-  }
-
-  private _isApiProcessing = false; */
+  isApiProcessing = false;
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
@@ -55,7 +51,9 @@ export abstract class BaseComponent {
 
   /**
    * this snack message can exist here or in functions.ts
-   * 
+   *
+   * TODO: Make the autoclose into a preference with a default value
+   *
    * @param snackBar 
    * @param message 
    * @param action 

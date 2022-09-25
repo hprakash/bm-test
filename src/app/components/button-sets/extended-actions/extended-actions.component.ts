@@ -7,7 +7,7 @@ import { IProfile, TypeProfile } from 'src/app/core/types';
   templateUrl: './extended-actions.component.html',
   // styleUrls: ['./extended-actions.component.css']
 })
-export class ExtendedActionsComponent implements OnInit {
+export class ExtendedActionsComponent {
 
   @Input()
   profile: TypeProfile = false;
@@ -17,20 +17,17 @@ export class ExtendedActionsComponent implements OnInit {
 
   public buttonTypes: typeof EButton = EButton;
 
-  constructor() { }
+  isDisabled: boolean = false;
 
-  ngOnInit(): void {
-    let i = 0;
-  }
+  constructor() { }
 
   onDisable(val: boolean) {
     console.log("new value received at on disable: ", val);
-    // this.isEnabled = !val;
+    this.isDisabled = val;
   }
 
   sendButtonPress(val: EButton) {
     // TODO need to check wether correct val is incoming
-
     this.buttonClicked.emit(val);
   }
 }
